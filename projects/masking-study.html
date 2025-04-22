@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neurodivergent Masking Study – Kritika</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <!-- <a href="../about.html">About</a> -->
+    <a href="../blog/blog.html">Blog</a>
+  </nav>
+
+  <main class="centered">
+    <h1>Neurodivergent Masking Study</h1>
+
+    <p class="meta"><strong>Timeline:</strong> 2023–2024</p>
+    <!-- <p class="meta"><strong>Collaborators:</strong> </p> -->
+
+    <section class="project-">
+      <p>
+        This work examines how neurodivergent people understand and experience masking in various social spaces. 
+        With qualitative analysis of community social media and survey data, we found that masking is an adaptive social mechanism to "hack" social access in neurotypical-dominated societies. We urge HCI folkx to re-think technologies for masking/unmasking.  
+    </section>
+
+    <section class="project-links">
+      <p><strong>Outputs:</strong></p>
+      
+      <a href="https://drive.google.com/file/d/1o3DfU_G6LGSiYJd0aZePvMbXR6p2c0Lh/view?usp=sharing" target="_blank">CHI 2025 Paper (PDF)</a>
+        <p>Alt research creative materials in pipeline </p>
+        <!-- <li><a href="https://kritika.github.io/zines/masking-zine.html" target="_blank">Zine: Stories of Masking</a></li> -->
+
+        <!-- <li><a href="https://github.com/kritika/masking-study-analysis" target="_blank">Data & Analysis (GitHub)</a></li> -->
+      </ul>
+    </section>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+  let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
+  const speed = 0.2;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Activate cursor after first move
+    document.body.classList.add("cursor-active");
+  });
+
+  function animateCursor() {
+    orbX += (mouseX - orbX) * speed;
+    orbY += (mouseY - orbY) * speed;
+    cursor.style.left = orbX + "px";
+    cursor.style.top = orbY + "px";
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+    // const cursor = document.querySelector('.custom-cursor');
+    // let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
+    // const speed = 0.2;
+    // document.addEventListener("mousemove", (e) => {
+    //   mouseX = e.clientX;
+    //   mouseY = e.clientY;
+    // });
+    // function animateCursor() {
+    //   orbX += (mouseX - orbX) * speed;
+    //   orbY += (mouseY - orbY) * speed;
+    //   cursor.style.left = orbX + "px";
+    //   cursor.style.top = orbY + "px";
+    //   requestAnimationFrame(animateCursor);
+    // }
+    // animateCursor();
+  </script>
+
+</body>
+</html>

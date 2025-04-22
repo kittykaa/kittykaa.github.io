@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tarot as a neurodivergent research tool</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <!-- <a href="../about.html">About</a> -->
+    <a href="../blog/blog.html">Blog</a>
+  </nav>
+
+  <main class="centered">
+    <h1>Tarot as a neurodivergent research tool</h1>
+
+    <p class="meta"><strong>Timeline:</strong> 2024–present</p>
+    <!-- <p class="meta"><strong>Collaborators:</strong> Online neurodivergent communities, UCSC HCI Group</p> -->
+
+    <section class="project-description">
+      <p>
+        Using tarot to reflect on assistive technologies and tools, and to re-examine relationship with disability.
+      </p>
+    </section>
+
+    <section class="project-links">
+      <p><strong>Outputs:</strong></p>
+      
+        <!-- li><a href="https://example.com/chi-2024-masking.pdf" target="_blank">CHI 2024 Paper (PDF)</a></li>
+        <li><a href="https://kritika.github.io/zines/masking-zine.html" target="_blank">Zine: Stories of Masking</a></li> -->
+        <p> Work in progress. </p>
+      
+    </section>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+    let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
+    const speed = 0.2;
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    function animateCursor() {
+      orbX += (mouseX - orbX) * speed;
+      orbY += (mouseY - orbY) * speed;
+      cursor.style.left = orbX + "px";
+      cursor.style.top = orbY + "px";
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+  </script>
+
+</body>
+</html>

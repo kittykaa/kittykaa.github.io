@@ -1,0 +1,123 @@
+<html><head><title>Work</title><link rel='stylesheet' href='style.css'></head><body><nav>
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="blog/blog.html">Blog</a>
+  <!-- <a href="about.html">About</a> -->
+</nav>
+<main class="centered">
+  <h1>Work 🧳</h1>
+  <p>I explore neurodivergence and disability through qualitative research and design. Some projects are still cooking (i.e., in the pipeline).</p>
+
+  <!-- Filter Buttons -->
+  <section class="tag-filter">
+    <button class="tag-btn" data-tag="all">All</button>
+    <!-- <button class="tag-btn" data-tag="design">#design</button> -->
+    <button class="tag-btn" data-tag="qualitative-research">#qualitative-research</button>
+    <button class="tag-btn" data-tag="critical-studies">#critical-studies</button>
+    <button class="tag-btn" data-tag="speculative-design">#speculative-design</button>
+  </section>
+
+  <!-- Project List -->
+  <section class="post-list">
+
+    <article class="post-preview" data-tags="critical-studies qualitative-research">
+      <h2><a href="projects/masking-study.html">Understanding Neurodivergent (ND) Masking in HCI</a></h2>
+      <p class="meta">
+      	<span class="tag">#critical-studies</span>
+    	<span class="tag">#qualitative-research</span>
+      </p>
+      <p class="excerpt">Exploring how neurodivergent people mask, and how we might design technologies that support these practices.</p>
+    </article>
+
+    <article class="post-preview" data-tags="speculative-design">
+      <!-- <h2> Tarot, a speculative design tool for (ND) people </h2> -->
+      <h2><a href="projects/tarot-study.html">Tarot, a speculative design tool for ND people </a></h2>
+      <p class="meta">
+      	<span class="tag">#speculative-design</span></p>
+      <p class="excerpt">Developing tarot readings as a research tool to engage meaningfully with ND people and experiences. </p>
+    </article>
+
+  </section>
+</main>
+
+<div class="custom-cursor"></div>
+<script>
+	const cursor = document.querySelector('.custom-cursor');
+
+  let mouseX = 0, mouseY = 0;
+  let orbX = 0, orbY = 0;
+  const speed = 0.2;
+  let initialized = false;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!initialized) {
+      // Place orb immediately under the cursor for first frame
+      orbX = mouseX;
+      orbY = mouseY;
+      cursor.style.left = `${orbX}px`;
+      cursor.style.top = `${orbY}px`;
+      document.body.classList.add("cursor-active");
+      initialized = true;
+    }
+  });
+
+  function animateCursor() {
+    orbX += (mouseX - orbX) * speed;
+    orbY += (mouseY - orbY) * speed;
+    cursor.style.left = `${orbX}px`;
+    cursor.style.top = `${orbY}px`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+  </script>
+
+  <!-- // const cursor = document.querySelector('.custom-cursor');
+
+  // let mouseX = 0;
+  // let mouseY = 0;
+  // let orbX = 0;
+  // let orbY = 0;
+  // const speed = 0.2; // Adjust for faster/slower trailing
+
+  // document.addEventListener("mousemove", (e) => {
+  //   mouseX = e.clientX;
+  //   mouseY = e.clientY;
+  // });
+
+  // function animateCursor() {
+  //   orbX += (mouseX - orbX) * speed;
+  //   orbY += (mouseY - orbY) * speed;
+  //   cursor.style.left = orbX + "px";
+  //   cursor.style.top = orbY + "px";
+  //   requestAnimationFrame(animateCursor);
+  // }
+
+  // animateCursor();
+  // Tag Filtering below -->
+  <script>
+  const tagButtons = document.querySelectorAll('.tag-btn');
+  const posts = document.querySelectorAll('.post-preview');
+
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedTag = btn.getAttribute('data-tag');
+
+      // Update active button UI
+      tagButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter posts
+      posts.forEach(post => {
+        const tags = post.getAttribute('data-tags');
+        const tagArray = tags.split(" ");
+        post.style.display = (selectedTag === 'all' || tagArray.includes(selectedTag)) ? 'block' : 'none';
+      });
+    });
+  });
+
+</script>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Kritika</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <!-- <a href="about.html">About</a> -->
+    <a href="blog/blog.html">Blog</a>
+  </nav>
+
+  <main class="centered">
+    <img src="images/kritika.jpg" alt="Kritika's portrait" class="hero-image" />
+
+    <h1>About Me</h1>
+
+    <p>I’m a researcher, designer, and writer passionate about interested in how we can reimagine accessibility, care, and knowledge-sharing through technology and community work. I'm currently pursuing my PhD at UCSC, where I work at the intersection of human-computer interaction (HCI), disability studies, and design justice.</p>
+
+    <p>My work centers neurodivergent and disabled perspectives, and I care deeply about making academic and technological spaces more inclusive, spiritual, and sensorially grounded. I believe in playful tools, rituals, and co-designing with love.</p>
+
+    <p>
+  <a href="assets/Kritika_CV.pdf" target="_blank" class="cv-button">📄 View My CV</a>
+	</p>
+
+
+    <section class="about-section">
+      <h2>🌿 Values & Commitments</h2>
+      <ul>
+        <li>Designing from lived experience</li>
+        <li>Feminist, crip, and anti-caste solidarities</li>
+        <li>Working slowly, and with care</li>
+        <li>Creating alternate modes of scholarship</li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2>💌 Let's connect</h2>
+      <p>Feel free to <a href="mailto:kritika@example.com">email me</a>, or message me on social media. I’m always happy to talk about collaborations, rituals, rest, or joyful design dreams.</p>
+    </section>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <script>
+    // const cursor = document.querySelector('.custom-cursor');
+    // let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
+    // const speed = 0.2;
+    // document.addEventListener("mousemove", (e) => {
+    //   mouseX = e.clientX;
+    //   mouseY = e.clientY;
+    // });
+    // function animateCursor() {
+    //   orbX += (mouseX - orbX) * speed;
+    //   orbY += (mouseY - orbY) * speed;
+    //   cursor.style.left = orbX + "px";
+    //   cursor.style.top = orbY + "px";
+    //   requestAnimationFrame(animateCursor);
+    // }
+    // animateCursor();
+    const cursor = document.querySelector('.custom-cursor');
+
+  let mouseX = 0, mouseY = 0;
+  let orbX = 0, orbY = 0;
+  const speed = 0.2;
+  let initialized = false;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!initialized) {
+      // Place orb immediately under the cursor for first frame
+      orbX = mouseX;
+      orbY = mouseY;
+      cursor.style.left = `${orbX}px`;
+      cursor.style.top = `${orbY}px`;
+      document.body.classList.add("cursor-active");
+      initialized = true;
+    }
+  });
+
+  function animateCursor() {
+    orbX += (mouseX - orbX) * speed;
+    orbY += (mouseY - orbY) * speed;
+    cursor.style.left = `${orbX}px`;
+    cursor.style.top = `${orbY}px`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+  </script>
+
+</body>
+</html>

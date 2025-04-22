@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kritika – Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="blog/blog.html">Blog</a>
+  <!-- <a href="about.html">About</a> -->
+</nav>
+
+
+  <main class="centered">
+    <div class="portrait-3d">
+      <img src="crater-lake-kritika.png" alt="Portrait of Kritika" class="portrait" />
+    </div>
+    <h1>Hi, I’m Kritika</h1>
+    <p>I’m an HCI researcher, designer and writer exploring the intersections of disability, technology and embodiment.</p>
+    <p><em>Re-imagining my own neurodivergent Barbieland. 💖✨</em></p>
+
+    <p class="now"><strong>Now:</strong> Presenting my research at CHI 2025, reflecting on neurodivergent joy, and developing a closer relationship with the ground (i.e, walking barefoot more).</p>
+
+    <hr style="margin: 2rem auto; max-width: 300px; border: 1px solid var(--divider);" />
+
+    <section class="collab-invite">
+      <h2>🌱 What’s Coming + Ways to Collaborate</h2>
+      <p>I’m currently working on <strong>Neurodivergent Embodiment</strong> — exploring how technologies can meaningfully support the ways neurodivergent people experience and move through the world.</p>
+      <p>I'm also working on alternate media to creatively explore and communicate my research.</p>
+      <p>I’m always open to collaborations, co-writing, and thoughtful conversations about neurodivergence, disability, care, and design justice. Let’s talk!</p>
+      <p>💌 <a href="mailto:kritika@ucsc.edu">Email me</a> or DM me on <a href="https://www.linkedin.com/in/kritika-k/">LinkedIn</a>.</p>
+    </section>
+  </main>
+  <div class="custom-cursor"></div>
+
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  let mouseX = 0, mouseY = 0;
+  let orbX = 0, orbY = 0;
+  const speed = 0.2;
+  let initialized = false;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!initialized) {
+      // Place orb immediately under the cursor for first frame
+      orbX = mouseX;
+      orbY = mouseY;
+      cursor.style.left = `${orbX}px`;
+      cursor.style.top = `${orbY}px`;
+      document.body.classList.add("cursor-active");
+      initialized = true;
+    }
+  });
+
+  function animateCursor() {
+    orbX += (mouseX - orbX) * speed;
+    orbY += (mouseY - orbY) * speed;
+    cursor.style.left = `${orbX}px`;
+    cursor.style.top = `${orbY}px`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+  // const cursor = document.querySelector('.custom-cursor');
+
+  // let mouseX = 0;
+  // let mouseY = 0;
+  // let orbX = 0;
+  // let orbY = 0;
+  // const speed = 0.2; // Adjust for faster/slower trailing
+
+  // document.addEventListener("mousemove", (e) => {
+  //   mouseX = e.clientX;
+  //   mouseY = e.clientY;
+  // });
+
+  // function animateCursor() {
+  //   orbX += (mouseX - orbX) * speed;
+  //   orbY += (mouseY - orbY) * speed;
+  //   cursor.style.left = orbX + "px";
+  //   cursor.style.top = orbY + "px";
+  //   requestAnimationFrame(animateCursor);
+  // }
+
+  // animateCursor();
+</script>
+</body>
+</html>

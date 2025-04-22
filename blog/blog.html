@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog – Kritika</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../work.html">Work</a>
+    <a href="blog.html">Blog</a>
+    <!-- <a href="../about.html">About</a> -->
+  </nav>
+
+  <main class="centered">
+    <h1>Blog</h1>
+    <div class="blog-coming-soon">
+      <p>Blog posts are coming soon ✍🏽</p>
+      <p class="note">Stay tuned for posts on my research and whimsical side-quests.</p>
+    </div>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <script>
+  	const cursor = document.querySelector('.custom-cursor');
+
+  let mouseX = 0, mouseY = 0;
+  let orbX = 0, orbY = 0;
+  const speed = 0.2;
+  let initialized = false;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!initialized) {
+      // Place orb immediately under the cursor for first frame
+      orbX = mouseX;
+      orbY = mouseY;
+      cursor.style.left = `${orbX}px`;
+      cursor.style.top = `${orbY}px`;
+      document.body.classList.add("cursor-active");
+      initialized = true;
+    }
+  });
+
+  function animateCursor() {
+    orbX += (mouseX - orbX) * speed;
+    orbY += (mouseY - orbY) * speed;
+    cursor.style.left = `${orbX}px`;
+    cursor.style.top = `${orbY}px`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+    // const cursor = document.querySelector('.custom-cursor');
+    // let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
+    // const speed = 0.2;
+    // document.addEventListener("mousemove", (e) => {
+    //   mouseX = e.clientX;
+    //   mouseY = e.clientY;
+    // });
+    // function animateCursor() {
+    //   orbX += (mouseX - orbX) * speed;
+    //   orbY += (mouseY - orbY) * speed;
+    //   cursor.style.left = orbX + "px";
+    //   cursor.style.top = orbY + "px";
+    //   requestAnimationFrame(animateCursor);
+    // }
+    // animateCursor();
+  </script>
+
+</body>
+</html>
